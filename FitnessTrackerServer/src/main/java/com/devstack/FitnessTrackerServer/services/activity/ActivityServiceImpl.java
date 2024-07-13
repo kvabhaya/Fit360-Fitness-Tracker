@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ActivityServiceImpl implements ActivityService{
     private final ActivityRepository activityRepository;
-    private final ActivityRepository;
 
     public ActivityDto postActivity(ActivityDto dto){
         Activity activity = new Activity();
