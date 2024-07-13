@@ -1,5 +1,6 @@
 package com.devstack.FitnessTrackerServer.Entity;
 
+import com.devstack.FitnessTrackerServer.dto.ActivityDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,4 +19,16 @@ public class Activity {
     private int steps;
     private double distance;
     private int caloriesBurned;
+
+    public ActivityDto getActivityDto() {
+        ActivityDto activityDto = new ActivityDto();
+
+        activityDto.setId(id);
+        activityDto.setDate(date);
+        activityDto.setDistance(distance);
+        activityDto.setSteps(steps);
+        activityDto.setCaloriesBurned(caloriesBurned);
+
+        return activityDto;
+    }
 }
