@@ -25,4 +25,12 @@ public class ActivityController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong..");
         }
     }
+
+    public ResponseEntity<?> getActivities(){
+        try{
+            return ResponseEntity.ok(activityService.getActivities());
+        }catch(Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong");
+        }
+    }
 }
