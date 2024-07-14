@@ -6,6 +6,9 @@ import com.devstack.FitnessTrackerServer.dto.ActivityDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class ActivityServiceImpl implements ActivityService{
@@ -20,5 +23,10 @@ public class ActivityServiceImpl implements ActivityService{
         activity.setCaloriesBurned(dto.getCaloriesBurned());
 
         return activityRepository.save(activity).getActivityDto();
+    }
+
+    public List<ActivityDto> getActivities(){
+        List<Activity> activities = activityRepository.findAll();
+        return activities.stream().map(Activity::getActivityDto).collect(Collectors.toList());
     }
 }
