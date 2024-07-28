@@ -30,6 +30,11 @@
               <nz-date-picker style="width: 100%;" formControlName="date"></nz-date-picker>
             </nz-form-control>
           </nz-form-item>
+
+          <button nz-button nzType="primary" nzBlock class="w-100" [disabled]="activityForm.invalid">
+            Post Activity
+          </button>
+
         </form>
       </nz-card>
     </div>

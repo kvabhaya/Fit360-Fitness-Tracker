@@ -6,6 +6,7 @@ import {NzFormControlComponent, NzFormDirective, NzFormItemComponent} from "ng-z
 import {FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {NzInputDirective} from "ng-zorro-antd/input";
 import {NzDatePickerComponent} from "ng-zorro-antd/date-picker";
+import {NzButtonComponent} from "ng-zorro-antd/button";
 
 @Component({
   selector: 'app-activity',
@@ -20,7 +21,8 @@ import {NzDatePickerComponent} from "ng-zorro-antd/date-picker";
     NzFormItemComponent,
     NzFormControlComponent,
     NzInputDirective,
-    NzDatePickerComponent
+    NzDatePickerComponent,
+    NzButtonComponent
   ],
   templateUrl: './activity.component.html',
   styleUrl: './activity.component.scss'
