@@ -8,6 +8,7 @@ import {NzInputDirective} from "ng-zorro-antd/input";
 import {NzDatePickerComponent} from "ng-zorro-antd/date-picker";
 import {NzButtonComponent} from "ng-zorro-antd/button";
 import {NzMessageService} from "ng-zorro-antd/message";
+import {UserService} from "../../service/user.service";
 
 @Component({
   selector: 'app-activity',
@@ -35,7 +36,8 @@ export class ActivityComponent {
   };
   activityForm!: FormGroup;
   constructor(private fb:FormBuilder,
-              private message: NzMessageService
+              private message: NzMessageService,
+              private userService: UserService
   ) {}
   ngOnInit(){
     this.activityForm = this.fb.group({
@@ -43,6 +45,15 @@ export class ActivityComponent {
       steps:[null, [Validators.required]],
       distance:[null, [Validators.required]],
       date:[null, [Validators.required]],
+    })
+  }
+
+  submitForm(){
+    this.userService.postActivity(this.activityForm.value).subscribe(res=>{
+      this.message.success("Activity posted successfully", {nzDuration: 5000});
+      this.activityForm.reset();
+    },error => {
+      this.message.error("Error while posting activity", {nzDuration: 5000});
     })
   }
 }
