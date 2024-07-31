@@ -56,4 +56,10 @@ export class ActivityComponent {
       this.message.error("Error while posting activity", {nzDuration: 5000});
     })
   }
+  getAllActivities(){
+    this.userService.getActivities().suscribe(res=>{
+      this.activities = res;
+      console.log(this.activities);
+    })
+  }
 }
