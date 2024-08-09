@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {NzCardComponent, NzCardGridDirective} from "ng-zorro-antd/card";
-import {NgStyle} from "@angular/common";
+import {DatePipe, NgForOf, NgStyle} from "@angular/common";
 import {NzColDirective} from "ng-zorro-antd/grid";
 import {NzFormControlComponent, NzFormDirective, NzFormItemComponent} from "ng-zorro-antd/form";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
@@ -24,7 +24,9 @@ import {UserService} from "../../service/user.service";
     NzFormControlComponent,
     NzInputDirective,
     NzDatePickerComponent,
-    NzButtonComponent
+    NzButtonComponent,
+    DatePipe,
+    NgForOf
   ],
   templateUrl: './activity.component.html',
   styleUrl: './activity.component.scss'
